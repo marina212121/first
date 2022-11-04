@@ -1,0 +1,95 @@
+//Fruit Shop Portal
+
+#include <stdio.h> 
+#include <math.h>
+int main()
+{
+    //declare all the characters 
+	char charc,shopkeeper,addmore;
+	//declare all the integers
+	int org,app,pear,budg,sum,qty,code;
+	//declare all the numbers that contain decimals
+	float price, amt, total, change;
+	printf("Welcome to the fruit shop online system!\n");
+	/*start a while loop for the whole code to repeat when one operation is done*/
+do{
+    //Ask if the user is a shopkeeper
+		printf("\nAre you a shopkeeper? (y/n)\n");
+		scanf("%c", &shopkeeper);
+//start an if statement to check user is shopkeeper
+		if (shopkeeper=='y')
+		{
+		    /*if user is shopkeeper display the shopkeeper panal*/
+		    printf("Welcome to the shopkeeper panal!\n\n");
+		    //display this for shopkeeper to enter prices
+			printf("Please enter orange price:$");
+			scanf("%d",&org);
+			printf("Please enter apple price:$");
+				scanf("%d",&app);
+			printf("Please enter pear price:$");
+				scanf("%d",&pear);
+		}
+		//use if to check if the user is not shopkeeper
+		
+		else if (shopkeeper == 'n')
+		{
+		    //if the user is not a shopkeeper display customer panal
+	        {
+	             printf("Welcome to the customer panal!");
+	             /*use while loop to recur the menu until customer finishes their order*/
+	            do
+	            {
+	                 
+		    
+			printf("\n\n***************Menu***************\n\n");
+			printf("[1] Oranges:      $3.00 \n");
+			printf("[2] Apples:       $5.00\n");
+			printf("[3] Pear:         $4.00 \n");
+			//ask user to pick a code from the menu 1-3
+			printf("\nEnter the code of the item you would like to purchase: \t");
+			scanf("%d",&code);
+		//use switch to store prices in relation to the items code
+		switch(code)
+		{
+		    case 1: price = 3.00;
+		    break;
+		    case 2: price = 5.00;
+		    break;
+		    case 3: price = 4.00;
+		    break;
+		}
+		//display the price of selected item
+		amt=price;
+		printf("Amount: $%.2f\n",amt);
+		/*display th current plus previous item's price (if there are any)*/
+		total=amt + total;
+		printf("Total: $%.2f",total);
+		//ask the customer if they want to purchase more items
+		printf("\nAdd more items?(y/n)\n");
+		scanf("%c",&charc);
+		
+		charc= getchar();
+		//using loop to recur the menu if customer wants to
+	            }while(charc == 'y');
+	            //ask user for their budget
+	   printf("Please enter your budget:$");
+		scanf("%d",&budg);
+		/*start an if statement to either display the customer's change if there is sufficient amount of money in their budget*/
+		if(budg>=total)
+		{
+		    change=budg-total;
+		    printf("Change from budget: $%.2f",change);
+		}
+		//if customer doesnt have a sufficient amount then display a message to let them know
+		else if(budg<total)
+		{
+		   printf("Your budget is too small for the purchase");
+		}
+		
+        }
+	          
+	        }
+	        //loop the whole program is user wants to
+}while(shopkeeper=getchar());
+	       return 0;
+		}
